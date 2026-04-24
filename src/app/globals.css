@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --cfe-green: #16a34a;
+  --cfe-green-dark: #15803d;
+  --cfe-green-light: #f0fdf4;
+  --cfe-gray-900: #111827;
+  --cfe-gray-700: #374151;
+  --cfe-gray-500: #6b7280;
+  --cfe-gray-300: #d1d5db;
+  --cfe-gray-100: #f9fafb;
+  --cfe-white: #ffffff;
+  --cfe-red: #dc2626;
+  --cfe-amber: #d97706;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--cfe-gray-900);
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Leaflet */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.component-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  transition: transform 0.15s ease;
+}
+
+.component-marker:hover {
+  transform: scale(1.15);
+}
+
+/* Popup */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: 280px !important;
+}
+
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Focus */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #16a34a !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+/* Alert pulse */
+@keyframes pulse-alert {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.alert-pulse {
+  animation: pulse-alert 2.5s ease-in-out infinite;
+}
