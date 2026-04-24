@@ -8,10 +8,10 @@ const prisma = new PrismaClient();
 // Inyectar / registrar punto corto
 export async function POST(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
-        const diagramId = params.id;
+        const { id: diagramId } = await params;
         const body = await req.json();
 
         const { iccMonofasica, iccTrifasica, xRelativo, yRelativo } = body;
@@ -41,7 +41,7 @@ export async function POST(
 // Eliminar un punto corto
 export async function DELETE(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const searchParams = req.nextUrl.searchParams;
